@@ -20,7 +20,11 @@ void showpng (char* filename, Display* dpy, Window w, XVisualInfo info) {
 
 	error = lodepng_load_file(&png, &pngsize, filename);
 	if(!error) error = lodepng_decode32(&image, &width, &height, png, pngsize);
-	if(error) printf("error %u: %s\n", error, lodepng_error_text(error));
+	if(error) 
+	{
+		printf("error %u: %s\n", error, lodepng_error_text(error));
+		exit(1);
+	}
 
 	free(png);
 
@@ -37,7 +41,6 @@ void showpng (char* filename, Display* dpy, Window w, XVisualInfo info) {
 	for(;i < width * height * 4; i = i + 4)
 	{
 		unsigned char tmp = image[i + 2];image[i + 2] = image[i];image[i] = tmp;
-		if(tmp > 255) printf("%d\n", tmp);
 	}
 
 	XImage* img = XCreateImage(dpy, info.visual, info.depth, ZPixmap, 0, (char*) image, width, height, 32, 0);
