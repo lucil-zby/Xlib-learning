@@ -12,12 +12,16 @@ int main(){
 		// black and white color
 		unsigned long blackColor = BlackPixel(dpy, DefaultScreen(dpy));
 		unsigned long whiteColor = WhitePixel(dpy, DefaultScreen(dpy));
+		
 		/* create window*/
 		Window w = XCreateSimpleWindow(dpy, DefaultRootWindow(dpy), 0,0,200,200,0,blackColor, whiteColor);
+		
 		/* map window */
 		XMapWindow(dpy, w);
+		
 		/* flush */
 		XFlush(dpy);
+		
 		sleep(10);
 		return 0;
 	} else {
