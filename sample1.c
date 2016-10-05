@@ -20,5 +20,7 @@ int main(){
 		XFlush(dpy);
 		sleep(10);
 		return 0;
+	} else {
+		return 1;
 	}
 }
