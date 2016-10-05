@@ -106,6 +106,5 @@ int main(int argc, char** argv){
 	}
 }
 
-// some pngs doesn't appear normally, maybe problem is the lodepng...not sure, need clue
 
 
