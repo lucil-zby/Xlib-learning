@@ -23,7 +23,6 @@ char* getRandColor(){
 	memcpy(color, "rgb:", sizeof("rgb:"));
 	int r = rand() % 256, g = rand() % 256,	b = rand() % 256;
 	sprintf(color+4,"%02x/%02x/%02x", r,g,b);
-	printf("%s\n",color);
 	return color;
 }
 
