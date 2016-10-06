@@ -1,4 +1,4 @@
-# Xlib-learning-notes
+# Xlib-sample-codes
 
-just some notes while learning programming with Xlib
-hope it can help you a bit as document is so limited online.....
+just some simple codes collected while learning xlib.
+hope it can help you.
