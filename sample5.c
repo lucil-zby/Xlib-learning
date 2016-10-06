@@ -1,3 +1,5 @@
+// this works when no composite manager is on
+
 #include <X11/Xlib.h>
 #include <X11/Xutil.h>
 #include <stdio.h>
