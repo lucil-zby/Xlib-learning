@@ -18,7 +18,6 @@ void paintbox(Display * dpy, Window w, int x, int y, int width, int height, int 
 }
 
 char* getRandColor(){
-	srand (time(NULL));
 	char* color = (char*) malloc(13 * sizeof(char));
 	memcpy(color, "rgb:", sizeof("rgb:"));
 	int r = rand() % 256, g = rand() % 256,	b = rand() % 256;
@@ -27,6 +26,7 @@ char* getRandColor(){
 }
 
 int main(){
+	srand (time(NULL));
 	Display * dpy = XOpenDisplay(NULL);
 	if (dpy != NULL)
 	{
@@ -64,8 +64,8 @@ int main(){
 
 		char* c1 = getRandColor();char* c2 = getRandColor();
 		XColor cr1,cr2;
-		XParseColor(dpy, attrs.colormap, c1, &cr1);	XParseColor(dpy, attrs.colormap, c2, &cr2);
-
+		XParseColor(dpy, attrs.colormap, c1, &cr1);XParseColor(dpy, attrs.colormap, c2, &cr2);
+		XAllocColor(dpy, attrs.colormap, &cr1);	XAllocColor(dpy, attrs.colormap, &cr2);
 		for(;;){
 			/* for multiple windows, use XWindowEvent */
 			XNextEvent(dpy, &ev);
